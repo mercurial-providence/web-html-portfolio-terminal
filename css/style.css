@@ -1,0 +1,22 @@
+*{
+        margin:0;
+    padding:0;
+}
+
+body {
+    background: black;
+    color:green;
+    font-family: monospace;
+}
+
+#info {
+    
+}
+
+.desc{
+margin-left: 100px;
+    display: block;
+}
+#workingdiv {
+    margin-bottom: 100px;
+}
