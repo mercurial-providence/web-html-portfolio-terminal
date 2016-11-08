@@ -1,80 +1,82 @@
-<!doctype html>
-<html>
+    <!doctype html>
+    <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Console Application</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/jquery-1.11.1.min.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Console Application</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/jquery-1.11.1.min.js"></script>
+    </head>
 
-<body>
+    <body>
+    <div id="container">
+            <div id="info">
+                <p style="display:block"><span style="float:left;">UNK(1)</span> <span  style="float:right;">UNK(1)</span></p><br/><br/>
 
-        <div id="info">
-            <p style="display:block"><span style="float:left;">UNK(1)</span> <span  style="float:right;">UNK(1)</span></p><br/><br/>
+                <p style="clear:both;">NAME
+                    <br/>
+                    <span style="text-align:center;;display:block;">Sizil Krishna, a programmer.</span>
+                </p>
+                <p>SYNOPSIS
+                    <br/>
+                    <span class="desc">
+           name     : Displays the name of human created this site.<br/>
+           skills   : Displays the skills of human.<br/>
 
-            <p style="clear:both;">NAME
-                <br/>
-                <span style="text-align:center;;display:block;">Sizil Krishna, a programmer.</span>
-            </p>
-            <p>SYNOPSIS
-                <br/>
-                <span class="desc">
-       name     : Displays the name of human created this site.<br/>
-       skills   : Displays the skills of human.<br/>
-
-<br/>
-       ex<br/>
-       view<br/>
-       gvim gview evim eview<br/>
-       rvim rview rgvim rgview<br/>
-       </span>
-            </p>
-            <p>DESCRIPTION
-                <br/>
-                <span class="desc">Vim  is a text editor that is upwards compatible to Vi.  It can be used
-       to edit all kinds of plain text.  It is especially useful  for  editing
-       programs.
-<br/>
-       There  are a lot of enhancements above Vi: multi level undo, multi win‐
-       dows and buffers, syntax highlighting, command line  editing,  filename
-       completion,   on-line   help,   visual  selection,  etc..  <br/> See  ":help
-       vi_diff.txt" for a summary of the differences between Vim and Vi.
-           </span><br/>
-            </p>
+           </span>
+                </p>
+                <p>DESCRIPTION
+                    <br/>
+                    <span class="desc">Vim  is a text editor that is upwards compatible to Vi.  It can be used
+           to edit all kinds of plain text.  It is especially useful  for  editing
+           programs.
+    <br/>
+           There  are a lot of enhancements above Vi: multi level undo, multi win‐
+           dows and buffers, syntax highlighting, command line  editing,  filename
+           completion,   on-line   help,   visual  selection,  etc..  <br/> See  ":help
+           vi_diff.txt" for a summary of the differences between Vim and Vi.
+               </span><br/>
+                </p>
 
         </div>
-        
-    <div id="workingdiv">     
-        <div id="info"></div>
-        <div id="consoleinput">
-        user@unkn0wn:~$<input type="text" id="inputform" style="background:black;color: green;border: none;margin-left: 7px;width: calc(100% - 200px);overflow-wrap: initial; font-family:monospace;"></input><button id="submitquery">Submit</button>
-        </div>
-    
-        
-    </div>
-</body>
 
-<script>
-    var skills ="<h3 >Programming Skills</h3><div id='archivehead'>C</div><div id='archivehead'>C++</div> <div id='archivehead'>PHP</div> <div id='archivehead'>MySql</div> <div id='archivehead'>Python</div><div id='archivehead'>Java</div><div id='archivehead'>HTML</div> <div id='archivehead'>JavaScript (JQuery)</div> <div id='archivehead'>CSS</div> <br/><h3 >Operating Systems</h3><div id='archivehead'>Microsoft Windows (XP, 7, 8)</div> <div id='archivehead'>Linux (Debian, Slackware, Fedora)</div><br/><h3 >Software Tools</h3><div id='archivehead'>Android Application Development</div><div id='archivehead'>MATLAB </div><div id='archivehead'>Gnuplot</div> <div id='archivehead'>Visual Studio</div> <div id='archivehead'>Wireshark</div><br/>";
-    
-    $("#submitquery").click(function(e){
-        $('#info').append('<div style="block">user@unkn0wn:~$ '+$("#inputform").val()+'<br/>');
-        switch($("#inputform").val()){
-        case "":$('#info').append('</div>');
-                break;
-        case "name": $('#info').append('Name: Sizil Krishna</div>');
-                     $("#inputform").html('');
-                     break;        
-        case "skills": $('#info').append(skills+'</div>');
-                     $("#inputform").html('');
+        <div id="workingdiv">   
+            <div id="consoleinput">
+            user@unkn0wn:~$<input type="text" id="inputform" autofocus="autofocus" />
+            </div>
+
+
+        </div>
+        </div>
+    </body>
+
+    <script>
+        var skills ="<h3 >Programming Skills</h3><div id='archivehead'>C</div><div id='archivehead'>C++</div> <div id='archivehead'>PHP</div> <div id='archivehead'>MySql</div> <div id='archivehead'>Python</div><div id='archivehead'>Java</div><div id='archivehead'>HTML</div> <div id='archivehead'>JavaScript (JQuery)</div> <div id='archivehead'>CSS</div> <br/><h3 >Operating Systems</h3><div id='archivehead'>Microsoft Windows (XP, 7, 8)</div> <div id='archivehead'>Linux (Debian, Slackware, Fedora)</div><br/><h3 >Software Tools</h3><div id='archivehead'>Android Application Development</div><div id='archivehead'>MATLAB </div><div id='archivehead'>Gnuplot</div> <div id='archivehead'>Visual Studio</div> <div id='archivehead'>Wireshark</div><br/>";
+
+        $("#inputform").keyup(function(event){
+            if(event.keyCode == 13){
+                getData();
+            }
+        });
+        
+        function getData(){
+            $('#info').append('<div style="block">user@unkn0wn:~$ '+$("#inputform").val()+'<br/>');
+            switch($("#inputform").val()){
+            case "":$('#info').append('</div>');
+                    $("#inputform").val()='';
+                    break;
+            case "name": $('#info').append('Name: Sizil Krishna</div>');
+                         $("#inputform").val('');
+                         break;        
+            case "skills": $('#info').append(skills+'</div>');
+                         $("#inputform").val('');
+                         break;
+            default: $('#info').append('Invalid Input. Currently very limited number of input are supported.</div>');
+                     $("#inputform").val('');
                      break;
-        default: $('#info').append('Invalid Input. Currently very limited number of input are supported.</div>');
-                 $("#inputform").removeData();
-                 break;
+            }
+
         }
-        
-    });
-    
-</script>
-</html>
+
+    </script>
+    </html>
